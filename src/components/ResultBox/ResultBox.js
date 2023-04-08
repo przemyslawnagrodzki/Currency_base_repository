@@ -14,6 +14,7 @@ const ResultBox = ({ from, to, amount }) => {
     if (amount === '') { return NaN }
     if (typeof amount !== 'string' && typeof amount !== 'number') { return 'Error' }
     if (amount < 0) { return '$0.00' }
+     
     return formatAmountInCurrency(amount, from);
   }, [from, to, amount]);
 
@@ -22,7 +23,7 @@ const ResultBox = ({ from, to, amount }) => {
   const formattedAmount = useMemo(() => formatAmountInCurrency(amount, from), [amount, from]);
 
   return (
-    <div className={styles.result}>
+    <div className={styles.result} data-testid="output">
       {formattedAmount} = {convertedAmount}
     </div>
   );
