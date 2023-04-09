@@ -13,7 +13,7 @@ const ResultBox = ({ from, to, amount }) => {
     if (typeof amount === 'string') { return NaN }
     if (amount === '') { return NaN }
     if (typeof amount !== 'string' && typeof amount !== 'number') { return 'Error' }
-    if (amount < 0) { return '$0.00' }
+    if (amount < 0) { return 'Wrong value...' }
      
     return formatAmountInCurrency(amount, from);
   }, [from, to, amount]);

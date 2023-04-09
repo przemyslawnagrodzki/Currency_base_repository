@@ -35,4 +35,9 @@ describe('Component ResultBox', () => {
         const output = screen.getByTestId('output')
         expect(output).toHaveTextContent('PLN 100.00 = PLN 100.00');
     })
+    it('should render text "Wrong value..." when the amount is negative', ()=> {
+        render(<ResultBox from='PLN' to='USD' amount={-100} />)
+        const output = screen.getByTestId('output')
+        expect(output).toHaveTextContent('Wrong value...');
+    })
 })
